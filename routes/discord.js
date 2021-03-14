@@ -1,7 +1,7 @@
 const discordRouter = require('express').Router();
 
 discordRouter.get('/', (req, res) => {
-    res.send(200);
+    res.redirect('/dashboard/auth/discord');
 });
 
 module.exports = discordRouter;

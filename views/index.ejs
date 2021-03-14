@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title><%- pageTitle %></title>
+
+    <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+</head>
+<body>
+    <%- include('partials/navbar.ejs') %>
+
+    <div class="page-content">
+        <% if (user && guilds) { %>
+            <h1>Your Servers:</h1>
+            <% guilds.forEach(function(server){ %>
+                <h2>
+                    <a href='/dashboard/<%- server.id %>'>
+                        <%= server.name %>
+                    </a>
+                </h2>
+            <% }) %>
+        <% } else { %>
+            <h1>Welcome to danktial's dashboard!</h1>
+            <p>Login to start modifying your league!</p>
+        <% } %>
+    </div>
+</body>
+</html>

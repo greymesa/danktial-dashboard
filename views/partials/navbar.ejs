@@ -1,0 +1,11 @@
+<div class="navbar">
+    <a href="/dashboard"><%- pageTitle %></a>
+
+    <div class="right">
+        <% if (user) { %>
+            <a href="/dashboard/me"><%- user.username %></a>
+        <% } else { %>
+            <a href="/dashboard/auth/discord">Login</a>
+        <% } %>
+    </div>
+</div>
