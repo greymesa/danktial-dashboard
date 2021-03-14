@@ -46,3 +46,12 @@ p, a {
 .navbar .right {
     float: right;
 }
+
+.title {
+    border-radius: 25px;
+    background: #2C2F33;
+    padding: 20px;
+    width: 200px;
+    height: 150px; 
+
+}

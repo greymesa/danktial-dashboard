@@ -14,7 +14,7 @@
 
     <div class="page-content">
         <% if (user && guilds) { %>
-            <h1>Your Servers:</h1>
+            <h1 class="title">Your Servers:</h1>
             <% guilds.forEach(function(server){ %>
                 <h2>
                     <a href='/dashboard/<%- server.id %>'>
