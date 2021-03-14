@@ -52,7 +52,7 @@ router.get('/:guildID', forceAuth, (req, res, next) => {
         const user = JSON.parse(req.user[0].data);
         const { guildID } = req.params;
         if (guildID === 'me') {
-            next()
+            next();
         } else {
             request.get({
                 url: `http://www.destial.xyz:1025/api/discord/guilds/${guildID}`,
@@ -62,8 +62,12 @@ router.get('/:guildID', forceAuth, (req, res, next) => {
                 method: 'GET',
                 json: true
             }, (err, r, body) => {
-                body.others = user.guilds.find(d => d.id === guildID);
-                res.render('guild', { pageTitle: 'Dashboard', user, guild: body });
+                if (body.error) {
+                    res.redirect('/dashboard');
+                } else {
+                    body.others = user.guilds.find(d => d.id === guildID);
+                    res.render('guild', { pageTitle: 'Dashboard', user, guild: body });
+                }
             });
         }
     }
@@ -71,6 +75,8 @@ router.get('/:guildID', forceAuth, (req, res, next) => {
     if (req.user && req.user[0]) {
         const user = JSON.parse(req.user[0].data);
         res.render('me', { pageTitle: 'Dashboard', user });
+    } else {
+        res.redirect('/dashboard/auth/discord');
     }
 });
 

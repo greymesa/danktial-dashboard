@@ -4,17 +4,13 @@ const passport = require('passport');
 authRouter.get('/discord', passport.authenticate('discord'));
 
 authRouter.get('/discord/redirect', passport.authenticate('discord', {
-    failureRedirect: '/'
+    failureRedirect: '/dashboard'
 }), (req, res) => {
     res.redirect('/dashboard');
 });
 
 authRouter.get('/', (req, res) => {
-    if (req.user && req.user[0]) {
-        res.redirect('/dashboard');
-    } else {
-        res.status(401).send('Unauthorized!');
-    }
+    res.redirect('/dashboard');
 });
 
 module.exports = authRouter;
