@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,500');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 
 body {
     background: #2C2F33;
@@ -13,13 +13,13 @@ body {
 .page-content h1 { margin-bottom: -10px; }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-weight: 500;
     color: #ffffff;
 }
 
 p, a {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-weight: 300;
     color: #ffffff;
 }
@@ -36,7 +36,7 @@ p, a {
 }
 
 .navbar a:hover {
-    color: #7792f3;
+    color: darkorange;
 }
 
 .navbar a:not(:last-child) {
