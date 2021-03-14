@@ -30,7 +30,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', routes);
-
+app.get('*', (req, res) => {
+    res.redirect('/dashboard');
+});
 app.listen(3002, () => {
     console.log('[ONLINE] Listening to port 3002');
     Database.db();
